@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ConsoleApp1
 {
@@ -6,6 +7,7 @@ namespace ConsoleApp1
         {
                 static void Main(string[] args)
                 {
+                        Console.Clear();
                         Console.WriteLine("Welcome, please proceed to choose a program to run");
                         Console.WriteLine("Program 1: Basic - Program 2: Advanced");
                         Console.WriteLine("Select program to load: 1 - 2");
@@ -18,10 +20,23 @@ namespace ConsoleApp1
                         {
                                 Program2.NotMain();
                         }
+                        else
+                        {
+                                Console.Error.Write("Invalid input");
+                                Thread.Sleep(1000);
+                                //Start process, friendly name is something like MyApp.exe (from current bin directory)
+                                System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
+
+                                //Close the current process
+                                Environment.Exit(0);
+                        }
+
+                        //start program1
+                        Console.Clear();
                         Console.Title = "Program 1 - Basic";
 
                         int num1, num2, total;
-                        Console.WriteLine("Hello World!");
+                        //Console.WriteLine("Hello World!");
                         
                         Console.WriteLine("Enter number1:");
                         num1 = int.Parse(Console.ReadLine());
