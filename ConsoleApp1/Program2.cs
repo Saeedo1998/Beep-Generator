@@ -13,8 +13,8 @@ namespace ConsoleApp1
 
                         int freqMin, freqMax, durMin, durMax, numOfBeeps;
                         //Console.WriteLine("Hello World!");
-                        Console.WriteLine("Frequency value must be between 37 and 32767");
                         Console.WriteLine("Enter frequency min range in Hz:");
+                        Console.WriteLine("Frequency value must be between 37 and 32767");
                         freqMin = int.Parse(Console.ReadLine());
                         Console.WriteLine("Enter frequency max range in Hz:");
                         freqMax = int.Parse(Console.ReadLine());
