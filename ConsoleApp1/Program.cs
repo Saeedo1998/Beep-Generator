@@ -7,6 +7,7 @@ namespace ConsoleApp1
         {
                 static void Main(string[] args)
                 {
+                        //RunCustomProgram1();
                         Console.Clear();
                         Console.WriteLine("Welcome, please proceed to choose a program to run");
                         Console.WriteLine("Program 1: Basic - Program 2: Advanced");
@@ -82,6 +83,11 @@ namespace ConsoleApp1
 
                         //Close the current process
                         Environment.Exit(0);
+                }
+                public static void RunCustomProgram1()
+                {
+                        Console.WriteLine("------------------------- Welcome to TROYA Turkish Airlines -------------------------");
+                        Console.ReadLine();
                 }
         }
 }
