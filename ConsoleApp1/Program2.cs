@@ -58,10 +58,25 @@ namespace ConsoleApp1
                         Console.WriteLine("Enter duration min range in ms:");
                         durMin = int.Parse(Console.ReadLine());
                         Console.WriteLine("Enter duration max range in ms:");
-                        durMax = int.Parse(Console.ReadLine());
+                        while (true)
+                        {
+                                 durMax = int.Parse(Console.ReadLine());
+                                if (durMax < durMin)
+                                {
+                                        Console.WriteLine("Duration maximum value must be higher than minimum value");
+
+                                }
+                                else
+                                {
+                                        break;
+                                }
+
+                        }
                         Console.WriteLine("--------- Frequency of Beeps -----------");
                         Console.WriteLine("Play how many beeps? (recommended 3 - 10)");
                         numOfBeeps = int.Parse(Console.ReadLine());
+
+                        //begin generating beep/s
                         for (int i = 0; i < numOfBeeps; i++)
                         {
                                 Random r = new Random();
