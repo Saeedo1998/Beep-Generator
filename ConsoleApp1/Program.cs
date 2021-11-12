@@ -10,8 +10,8 @@ namespace ConsoleApp1
                         //RunCustomProgram1();
                         Console.Clear();
                         Console.WriteLine("Welcome, please proceed to choose a program to run");
-                        Console.WriteLine("Program 1: Basic - Program 2: Advanced");
-                        Console.WriteLine("Select program to load: 1 - 2");
+                        Console.WriteLine("Program 1: Basic - Program 2: Advanced - Program 3: Derp");
+                        Console.WriteLine("Select program to load: 1 - 3");
                         int programToLoad = int.Parse(Console.ReadLine());
                         if (programToLoad == 1)
                         {
@@ -25,6 +25,14 @@ namespace ConsoleApp1
                         else if (programToLoad == 2)
                         {
                                 Program2.NotMain();
+                                Console.WriteLine("Thank you, " + Environment.UserName.ToString() + ". " +
+                                        "Your cooperation is much appreciated");
+                                Thread.Sleep(1750);
+                                Restart();
+                        }
+                        else if (programToLoad == 3)
+                        {
+                                Program3.NotMain();
                                 Console.WriteLine("Thank you, " + Environment.UserName.ToString() + ". " +
                                         "Your cooperation is much appreciated");
                                 Thread.Sleep(1750);
