@@ -8,11 +8,28 @@ namespace ConsoleApp1
                 static void Main(string[] args)
                 {
                         //RunCustomProgram1();
+                        //int num = 0;
+                        //while (true)
+                        //{
+                        //        Array s = new Array[];
+                        //        Console.Write("-");
+                        //        num++;
+                        //        Thread.Sleep(100);
+                        //        if (num == 10 || num == 20)
+                        //        {
+                        //                Console.WriteLine();
+                        //                Thread.Sleep(1000);
+
+                        //        }
+                        //}
+                        //Console.ForegroundColor = ConsoleColor.Green;
+                        //Console.BackgroundColor = "#073605";
                         Console.Title = "Beep Generator";
                         Console.Clear();
-                        Console.WriteLine("Welcome, please browse from the currently available programs:-");
-                        Console.WriteLine("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp)");
-                        Console.WriteLine("Enter the number for the desired Program: (1 - 3)");
+                        WriteSequentially("Welcome \r\n", 20);
+                        WriteSequentially("Please browse from the currently available programs:- \r\n", 5);
+                        WriteSequentially("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp) \r\n", 2);
+                        WriteSequentially("Enter the number for the desired Program: (1 - 3) \r\n", 1);
                         int programToLoad = int.Parse(Console.ReadLine());
                         if (programToLoad == 1)
                         {
@@ -41,7 +58,22 @@ namespace ConsoleApp1
                         return;
 
                 }
-
+                public static void WriteSequentially(string text, int speed)
+                {
+                        foreach (var var in text)
+                        {
+                                Console.Write(var);
+                                Thread.Sleep(speed);
+                        }
+                }
+                public static void WriteSequentially(string text)
+                {
+                        foreach (var var in text)
+                        {
+                                Console.Write(var);
+                                Thread.Sleep(90);
+                        }
+                }
                 public static void Program1()
                 {
                         try
