@@ -8,8 +8,9 @@ namespace ConsoleApp1
                 static void Main(string[] args)
                 {
                         //RunCustomProgram1();
+                        Console.Title = "Beep Generator";
                         Console.Clear();
-                        Console.WriteLine("Welcome, please browse the currently available programs:-");
+                        Console.WriteLine("Welcome, please browse from the currently available programs:-");
                         Console.WriteLine("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp)");
                         Console.WriteLine("Enter the number for the desired Program: (1 - 3)");
                         int programToLoad = int.Parse(Console.ReadLine());
