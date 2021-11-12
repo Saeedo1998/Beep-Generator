@@ -19,6 +19,10 @@ namespace ConsoleApp1
                         while (true)
                         {
                                 freqMin = int.Parse(Console.ReadLine());
+                                //if (freqMin == null)
+                                //{
+                                //        Console.WriteLine("Invalid input");
+                                //}
                                 if (freqMin < 37)
                                 {
                                         Console.WriteLine("Sound frequency must be at least 37");
