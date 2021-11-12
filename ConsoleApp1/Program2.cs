@@ -16,9 +16,44 @@ namespace ConsoleApp1
                         Console.WriteLine("----------- Sound Frequency -----------");
                         Console.WriteLine("Frequency value must be between 37 and 32767");
                         Console.WriteLine("Enter frequency minimum range in Hz:");
-                        freqMin = int.Parse(Console.ReadLine());
+                        while (true)
+                        {
+                                freqMin = int.Parse(Console.ReadLine());
+                                if (freqMin < 37)
+                                {
+                                        Console.WriteLine("Sound frequency must be at least 37");
+                                }
+                                else if (freqMin > 32767)
+                                {
+                                        Console.WriteLine("Sound frequency must not exceed 32767");
+                                }
+                                else
+                                {
+                                        break;
+                                }
+                        }
                         Console.WriteLine("Enter frequency maximum range in Hz:");
-                        freqMax = int.Parse(Console.ReadLine());
+                        while (true)
+                        {
+                                freqMax = int.Parse(Console.ReadLine());
+                                if (freqMax < freqMin)
+                                {
+                                        Console.WriteLine("Maximum frequency must be higher than minimum frequency");
+                                }
+                                else if (freqMax < 37)
+                                {
+                                        Console.WriteLine("Sound frequency must be at least 37");
+                                }
+                                else if (freqMax > 32767)
+                                {
+                                        Console.WriteLine("Sound frequency must not exceed 32767");
+                                }
+                                else
+                                {
+                                        break;
+                                }
+                        }
+                        
                         Console.WriteLine("------------ Beep Duration ------------");
                         Console.WriteLine("Enter duration min range in ms:");
                         durMin = int.Parse(Console.ReadLine());
