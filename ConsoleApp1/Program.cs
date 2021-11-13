@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -27,9 +28,10 @@ namespace ConsoleApp1
                         Console.Title = "Beep Generator";
                         Console.Clear();
                         WriteSequentially("Welcome \r\n", 20);
-                        WriteSequentially("Please browse from the currently available programs:- \r\n", 5);
-                        WriteSequentially("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp) \r\n", 2);
-                        WriteSequentially("Enter the number for the desired Program: (1 - 3) \r\n", 1);
+                        WriteSequentially("Please browse from the currently available programs:- \r\n", 10);
+                        WriteSequentially("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp) \r\n", 10);
+                        WriteSequentially("Enter the number for the desired Program: (1 - 3) \r\n", 10);
+                        
                         int programToLoad = int.Parse(Console.ReadLine());
                         if (programToLoad == 1)
                         {
@@ -63,7 +65,21 @@ namespace ConsoleApp1
                         foreach (var var in text)
                         {
                                 Console.Write(var);
-                                Thread.Sleep(speed);
+                                //Thread.Sleep(speed);
+                                new System.Threading.ManualResetEvent(false).WaitOne(speed);
+                                //Task.Delay(speed).Wait(); // Wait 2 seconds with blocking
+                                //await Task.Delay(2000); // Wait 2 seconds without blocking
+
+                        }
+                }
+                public static void WriteSequentially(string text, TimeSpan time)
+                {
+                        foreach (var var in text)
+                        {
+                                Console.Write(var);
+                                //Thread.Sleep(time);
+                                new System.Threading.ManualResetEvent(false).WaitOne(time);
+
                         }
                 }
                 public static void WriteSequentially(string text)
@@ -71,7 +87,9 @@ namespace ConsoleApp1
                         foreach (var var in text)
                         {
                                 Console.Write(var);
-                                Thread.Sleep(90);
+                                //Thread.Sleep(90);
+                                new System.Threading.ManualResetEvent(false).WaitOne(90);
+
                         }
                 }
                 public static void Program1()
