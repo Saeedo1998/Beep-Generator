@@ -8,57 +8,70 @@ namespace ConsoleApp1
         {
                 static void Main(string[] args)
                 {
-                        //RunCustomProgram1();
-                        //int num = 0;
-                        //while (true)
-                        //{
-                        //        Array s = new Array[];
-                        //        Console.Write("-");
-                        //        num++;
-                        //        Thread.Sleep(100);
-                        //        if (num == 10 || num == 20)
-                        //        {
-                        //                Console.WriteLine();
-                        //                Thread.Sleep(1000);
+                        try
+                        {
+                                //Console.BackgroundColor = ConsoleColor.White;
+                                //Console.ForegroundColor = ConsoleColor.Black;
 
-                        //        }
-                        //}
-                        //Console.ForegroundColor = ConsoleColor.Green;
-                        //Console.BackgroundColor = "#073605";
-                        Console.Title = "Beep Generator";
-                        Console.Clear();
-                        WriteSequentially("Welcome \r\n", 20);
-                        WriteSequentially("Please browse from the currently available programs:- \r\n", 10);
-                        WriteSequentially("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp) \r\n", 10);
-                        WriteSequentially("Enter the number for the desired Program: (1 - 3) \r\n", 10);
-                        
-                        int programToLoad = int.Parse(Console.ReadLine());
-                        if (programToLoad == 1)
-                        {
-                                Program1();
-                                DisplayRestartMessage();
-                                Restart();
-                        }
-                        else if (programToLoad == 2)
-                        {
-                                Program2.NotMain();
-                                DisplayRestartMessage();
-                                Restart();
-                        }
-                        else if (programToLoad == 3)
-                        {
-                                Program3.NotMain();
-                                DisplayRestartMessage();
-                                Restart();
-                        }
-                        else
-                        {
-                                Console.Error.Write("Invalid input");
-                                Thread.Sleep(1750);
-                                Restart();
-                        }
-                        return;
+                                //RunCustomProgram1();
+                                //int num = 0;
+                                //while (true)
+                                //{
+                                //        Array s = new Array[];
+                                //        Console.Write("-");
+                                //        num++;
+                                //        Thread.Sleep(100);
+                                //        if (num == 10 || num == 20)
+                                //        {
+                                //                Console.WriteLine();
+                                //                Thread.Sleep(1000);
 
+                                //        }
+                                //}
+                                //Console.ForegroundColor = ConsoleColor.Green;
+                                //Console.BackgroundColor = "#073605";
+                                Console.Title = "Beep Generator";
+                                Console.Clear();
+                                WriteSequentially("Welcome \r\n", 20);
+                                WriteSequentially("Please browse from the currently available programs:- \r\n", 10);
+                                WriteSequentially("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp) \r\n", 10);
+                                WriteSequentially("Enter the number for the desired Program: (1 - 3) \r\n", 10);
+
+                                int programToLoad = 0;
+                                int.TryParse(Console.ReadLine(), out programToLoad);
+
+                                if (programToLoad == 1)
+                                {
+                                        Program1();
+                                        DisplayRestartMessage();
+                                        Restart();
+                                }
+                                else if (programToLoad == 2)
+                                {
+                                        Program2.NotMain();
+                                        DisplayRestartMessage();
+                                        Restart();
+                                }
+                                else if (programToLoad == 3)
+                                {
+                                        Program3.NotMain();
+                                        DisplayRestartMessage();
+                                        Restart();
+                                }
+                                else
+                                {
+                                        Console.Error.Write("Invalid input");
+                                        Thread.Sleep(1750);
+                                        Restart();
+                                }
+                                
+                                return;
+                        }
+                        catch (Exception e)
+                        {
+                                Console.Error.WriteLine("ERROR: " + e.Message);
+                                throw;
+                        }
                 }
                 public static void WriteSequentially(string text, int speed)
                 {

@@ -11,8 +11,8 @@ namespace ConsoleApp1
                         Console.Clear();
                         Console.Title = "Program 3 - Derp";
 
-                       
-                                Console.Beep(360, 3000);
+
+                        Console.Beep(360, 3000);
 
 
                 }

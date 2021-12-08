@@ -57,14 +57,14 @@ namespace ConsoleApp1
                                         break;
                                 }
                         }
-                        
+
                         Console.WriteLine("------------ Beep Duration ------------");
                         Console.WriteLine("Enter duration min range in ms:");
                         durMin = int.Parse(Console.ReadLine());
                         Console.WriteLine("Enter duration max range in ms:");
                         while (true)
                         {
-                                 durMax = int.Parse(Console.ReadLine());
+                                durMax = int.Parse(Console.ReadLine());
                                 if (durMax < durMin)
                                 {
                                         Console.WriteLine("Duration maximum value must be higher than minimum value");
