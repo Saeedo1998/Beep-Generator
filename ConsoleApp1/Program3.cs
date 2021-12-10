@@ -6,7 +6,7 @@ namespace ConsoleApp1
 {
         class Program3
         {
-                public static void NotMain()
+                public static void Start()
                 {
                         Console.Clear();
                         Console.Title = "Program 3 - Derp";
