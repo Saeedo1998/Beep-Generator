@@ -50,7 +50,20 @@ namespace ConsoleApp1
                                 else if (programToLoad == 2)
                                 {
                                         Program2.Start();
-                                        DisplayRestartMessage();
+                                        while (true)
+                                        {
+                                                Console.WriteLine("Restart program? (Y / N)");
+                                                ConsoleKeyInfo userInput = Console.ReadKey();
+                                                if (userInput.Key == ConsoleKey.Y)
+                                                {
+                                                        Program2.Start();
+                                                }
+                                                else if (userInput.Key == ConsoleKey.N)
+                                                {
+                                                        break;
+                                                }
+                                        }
+                                        //DisplayRestartMessage();
                                         Restart();
                                 }
                                 else if (programToLoad == 3)
@@ -74,35 +87,31 @@ namespace ConsoleApp1
                                 throw;
                         }
                 }
-                public static void WriteSequentially(string text, int speed)
-                {
-                        foreach (var var in text)
-                        {
-                                Console.Write(var);
-                                //Thread.Sleep(speed);
-                                new System.Threading.ManualResetEvent(false).WaitOne(speed);
-                                //Task.Delay(speed).Wait(); // Wait 2 seconds with blocking
-                                //await Task.Delay(2000); // Wait 2 seconds without blocking
-
-                        }
-                }
-                public static void WriteSequentially(string text, TimeSpan time)
-                {
-                        foreach (var var in text)
-                        {
-                                Console.Write(var);
-                                //Thread.Sleep(time);
-                                new System.Threading.ManualResetEvent(false).WaitOne(time);
-
-                        }
-                }
                 public static void WriteSequentially(string text)
                 {
                         foreach (var var in text)
                         {
                                 Console.Write(var);
-                                //Thread.Sleep(90);
-                                new System.Threading.ManualResetEvent(false).WaitOne(90);
+                                WaitFor(90);
+
+                        }
+                }
+                public static void WriteSequentially(string text, int speedInMilliseconds)
+                {
+                        foreach (var var in text)
+                        {
+                                Console.Write(var);
+                                WaitFor(speedInMilliseconds);
+
+                        }
+                }
+                
+                public static void WriteSequentially(string text, TimeSpan time)
+                {
+                        foreach (var var in text)
+                        {
+                                Console.Write(var);
+                                WaitFor(time);
 
                         }
                 }
@@ -111,7 +120,7 @@ namespace ConsoleApp1
                 {
                         Console.WriteLine("Thank you, " + Environment.UserName.ToString() + ". " +
                                         "Your cooperation is much appreciated");
-                        Thread.Sleep(1750);
+                        WaitFor(1750);
                 }
                 public static void Restart()
                 {
@@ -126,6 +135,22 @@ namespace ConsoleApp1
                 {
                         Console.WriteLine("------------------------- Welcome to TROYA Turkish Airlines -------------------------");
                         Console.ReadLine();
+                }
+
+                public static void WaitFor(int milliseconds)
+                {
+                        //Thread.Sleep(speed);
+                        new System.Threading.ManualResetEvent(false).WaitOne(milliseconds);
+                        //Task.Delay(speed).Wait(); // Wait 2 seconds with blocking
+                        //await Task.Delay(2000); // Wait 2 seconds without blocking
+                }
+
+                public static void WaitFor(TimeSpan milliseconds)
+                {
+                        //Thread.Sleep(speed);
+                        new System.Threading.ManualResetEvent(false).WaitOne(milliseconds);
+                        //Task.Delay(speed).Wait(); // Wait 2 seconds with blocking
+                        //await Task.Delay(2000); // Wait 2 seconds without blocking
                 }
         }
 }
