@@ -31,8 +31,9 @@ namespace ConsoleApp1
                                 //Console.ForegroundColor = ConsoleColor.Green;
                                 //Console.BackgroundColor = "#073605";
                                 Console.Title = "Beep Generator";
+                                string Welcome = "";
                                 Console.Clear();
-                                WriteSequentially("Welcome \r\n", 20);
+                                WriteSequentially(nameof(Welcome)+" \r\n", 20);
                                 WriteSequentially("Please browse from the currently available programs:- \r\n", 10);
                                 WriteSequentially("(Program 1:- Basic) - (Program 2:- Advanced) - (Program 3:- Derp) \r\n", 10);
                                 WriteSequentially("Enter the number for the desired Program: (1 - 3) \r\n", 10);
