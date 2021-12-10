@@ -1,2 +1,2 @@
-# ConsoleApp-Beep
-Messing around with C# console
+# Beep Generator
+Just a simple C# console app that generates beeps
