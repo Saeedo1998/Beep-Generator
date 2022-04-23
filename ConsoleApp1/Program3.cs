@@ -4,17 +4,17 @@ using System.Text;
 
 namespace BeepGenerator
 {
-        class Program3
+    class Program3
+    {
+        public static void Start()
         {
-                public static void Start()
-                {
-                        Console.Clear();
-                        Console.Title = "Program 3 - Derp";
+            Console.Clear();
+            Console.Title = "Program 3 - Random";
+
+            Random r = new Random();
+            Console.Beep(r.Next(100, 1000), r.Next(200, 2000));
 
 
-                        Console.Beep(360, 3000);
-
-
-                }
         }
+    }
 }
